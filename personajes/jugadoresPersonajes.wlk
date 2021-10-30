@@ -31,6 +31,7 @@ object mario {
 	    ultimoElementoEncontrado = elemento
 	  //  self.registrarAltura(elemento)
 	}
+	method valorRecolectado(){return valorRecolectado}
 	//method registrarAltura(elemento){altura = elemento.altura()}
 	method esFeliz() {return valorRecolectado>49 || ultimoElementoEncontrado.altura() > 9}
 }

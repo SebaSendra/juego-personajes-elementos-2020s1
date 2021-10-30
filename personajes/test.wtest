@@ -1,0 +1,65 @@
+import jugadoresPersonajes.*
+import armas.*
+import elementos.*
+
+describe "test de Luisa"{
+	
+	method initialize(){
+		luisa.personajeActivo(mario)
+		luisa.aparece(aurora)
+		luisa.aparece(castillo)
+	}
+
+	test "verificaciones" {
+
+	assert.equals(45,mario.valorRecolectado()
+	assert.that(mario.esFeliz())
+	assert.equals(170, castillo.nivelDeDefensa())
+	}
+}
+
+
+describe "test de Floki con jabalina"{
+	
+	method initialize(){
+		floki.arma(jabalina)
+		luisa.personajeActivo(mario)
+		luisa.aparece(tipa)
+		luisa.personajeActivo(floki)
+		luisa.aparece(aurora)
+		luisa.aparece(castillo)
+	}
+	
+
+	test "verificaciones" {
+
+	assert.equals(16,mario.valorRecolectado())
+	assert.equals(9,tipa.altura())
+	assert.notThat(mario.esFeliz())
+	assert.notThat(aurora.estaViva())
+	assert.equals(150,castillo.nivelDeDefensa())
+	assert.notThat(jabalina.estaCargada())
+
+	}
+}
+
+describe "test de Floki con ballesta"{
+	
+	method initialize(){
+		floki.arma(ballesta)
+		luisa.personajeActivo(floki)
+		luisa.aparece(aurora)
+		luisa.aparece(castillo)
+	}
+	
+	test "verificaciones" {
+
+	assert.equals(0,mario.valorRecolectado())
+	assert.that(aurora.estaViva())
+	assert.equals(146,castillo.nivelDeDefensa())
+	assert.that(ballesta.estaCargada())
+	assert.equals(8,ballesta.cantidadDeFlechas())
+
+	}
+}
+
